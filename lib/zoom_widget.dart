@@ -23,7 +23,7 @@ class Zoom extends StatefulWidget {
     this.initPosition,
     this.initScale,
     this.initTotalZoomOut = false,
-    Key? key,
+    super.key,
     this.maxScale = 2.5,
     this.maxZoomHeight,
     this.maxZoomWidth,
@@ -38,8 +38,7 @@ class Zoom extends StatefulWidget {
     this.transformationController,
     this.zoomSensibility = 1.0,
   })  : assert(maxScale > 0),
-        assert(!maxScale.isNaN),
-        super(key: key);
+        assert(!maxScale.isNaN);
 
   final Color backgroundColor;
   final Color canvasColor;
@@ -833,12 +832,10 @@ class _ZoomState extends State<Zoom>
       final currentScale = _transformationController!.value.getMaxScaleOnAxis();
 
       _transformationController!.value = _matrixTranslate(
-          _transformationController!.value,
-          Offset(
-            -0.01,
-            -0.01,
-          ),
-          fixOffset: true);
+        _transformationController!.value,
+        const Offset(-0.01, -0.01),
+        fixOffset: true,
+      );
 
       if (childSize.width == childSize.height) {
         if (childSize.width > parentSize.width &&
@@ -865,10 +862,7 @@ class _ZoomState extends State<Zoom>
 
       _transformationController!.value = _matrixTranslate(
         _transformationController!.value,
-        Offset(
-          -0.01,
-          -0.01,
-        ),
+        const Offset(-0.01, -0.01),
       );
 
       void fitChild(bool condition) {
@@ -879,7 +873,7 @@ class _ZoomState extends State<Zoom>
               fixScale: true);
 
           _transformationController!.value = _matrixTranslate(
-              _transformationController!.value, Offset(-0.01, -0.01),
+              _transformationController!.value, const Offset(-0.01, -0.01),
               fixOffset: true);
         } else {
           _transformationController!.value = _matrixScale(
@@ -888,7 +882,7 @@ class _ZoomState extends State<Zoom>
               fixScale: true);
 
           _transformationController!.value = _matrixTranslate(
-              _transformationController!.value, Offset(-0.01, -0.01),
+              _transformationController!.value, const Offset(-0.01, -0.01),
               fixOffset: true);
         }
       }
@@ -911,7 +905,7 @@ class _ZoomState extends State<Zoom>
               fixScale: true);
 
           _transformationController!.value = _matrixTranslate(
-              _transformationController!.value, Offset(-0.01, -0.01),
+              _transformationController!.value, const Offset(-0.01, -0.01),
               fixOffset: true);
         }
         if (widget.initPosition != null) {
@@ -1054,12 +1048,11 @@ class _ZoomState extends State<Zoom>
 
 class _ZoomBuilt extends StatelessWidget {
   const _ZoomBuilt({
-    Key? key,
     required this.child,
     required this.childKey,
     required this.constrained,
     required this.matrix,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final GlobalKey childKey;

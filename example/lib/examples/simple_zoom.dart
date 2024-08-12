@@ -7,15 +7,12 @@ class SimpleZoom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Custom zoom'),
-      ),
+      appBar: AppBar(title: const Text('Custom zoom')),
       body: Zoom(
-          maxZoomHeight: 1000,
-          maxZoomWidth: 1000,
-          child: Center(
-            child: Text('Happy zoom!'),
-          )),
+        maxZoomHeight: 1000,
+        maxZoomWidth: 1000,
+        child: const Center(child: Text('Happy zoom!')),
+      ),
     );
   }
 }

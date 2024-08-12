@@ -1,3 +1,7 @@
+## [2.1.0]
+* Bumped to Dart 3
+* Added lints
+
 ## [2.0.0]
 * Total refactor to use matrix operations.
 

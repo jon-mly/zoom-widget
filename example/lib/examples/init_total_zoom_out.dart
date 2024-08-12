@@ -8,15 +8,11 @@ class InitTotalZoomOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Init total zoom'),
+        title: const Text('Init total zoom'),
       ),
       body: Zoom(
         initTotalZoomOut: true,
-        child: Center(
-          child: FlutterLogo(
-            size: 1000,
-          ),
-        ),
+        child: const Center(child: FlutterLogo(size: 1000)),
       ),
     );
   }

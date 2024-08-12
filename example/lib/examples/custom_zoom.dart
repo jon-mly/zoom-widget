@@ -16,9 +16,7 @@ class _CustomZoomState extends State<CustomZoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Custom zoom'),
-      ),
+      appBar: AppBar(title: const Text('Custom zoom')),
       body: Zoom(
         initTotalZoomOut: true,
         backgroundColor: Colors.orange,
@@ -32,9 +30,7 @@ class _CustomZoomState extends State<CustomZoom> {
         opacityScrollBars: 0.9,
         scrollWeight: 10.0,
         zoomSensibility: 0.05,
-        onTap: () {
-          print("Widget clicked");
-        },
+        onTap: () => print("Widget clicked"),
         onPositionUpdate: (position) {
           setState(() {
             x = position.dx;
@@ -49,10 +45,7 @@ class _CustomZoomState extends State<CustomZoom> {
         child: Center(
           child: Text(
             "x:${x.toStringAsFixed(2)} y:${y.toStringAsFixed(2)} zoom:${zoom.toStringAsFixed(2)}",
-            style: TextStyle(
-              color: Colors.deepPurple,
-              fontSize: 50,
-            ),
+            style: const TextStyle(color: Colors.deepPurple, fontSize: 50),
           ),
         ),
       ),
